@@ -3,7 +3,7 @@
     include_once('persona.php');
 
     //asignar valores a las propiedades del objeto
-    if(isset($_POST['btn_save'])){   
+    if(isset($_POST['btn_save'])){  #Se valida el clic del botón y se cacha el método post 
         //instanciar la clase
         $persona = new persona();
         $persona->setNombre($_POST['nombre']);
@@ -51,18 +51,18 @@
 <body>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <label for="nombre">Nombre:</label>
-        <input type="text" required name="nombre" id="nombre" value="<?php if(isset($persona))echo $persona->getNombre(); ?>">
+        <input type="text" required name="nombre" id="nombre" value="<?php /* Si existe la variable se muestra su valor */ if(isset($persona))echo $persona->getNombre(); ?>">
         <label for="edad">Edad:</label>
-        <input type="text" required name="edad" id="edad" value="<?php if(isset($persona))echo $persona->getEdad(); ?>">
+        <input type="text" required name="edad" id="edad" value="<?php /* Si existe la variable se muestra su valor */ if(isset($persona))echo $persona->getEdad(); ?>">
         <label for="peso">Peso:</label>
-        <input type="text" required name="peso" id="peso" value="<?php if(isset($persona))echo $persona->getPeso(); ?>">
+        <input type="text" required name="peso" id="peso" value="<?php /* Si existe la variable se muestra su valor */ if(isset($persona))echo $persona->getPeso(); ?>">
         <label for="altura">Altura:</label>
-        <input type="text" required name="altura" id="altura" value="<?php if(isset($persona))echo $persona->getAltura(); ?>">
+        <input type="text" required name="altura" id="altura" value="<?php /* Si existe la variable se muestra su valor */ if(isset($persona))echo $persona->getAltura(); ?>">
         <input type="submit" name="btn_save" value="Gurdar">
     </form>
     <section>
         <?php 
-            if(isset($_POST['btn_save'])){
+            if(isset($_POST['btn_save'])){#Aquí también se valida que se haya dado clic, ya que dentro del primer bloque php dónde se cacha el clic es donde se inicializa la variable
                 //impresiones de los resultados
                 echo "<br><br>Datos:";
                 echo "<br>Nombre: $persona->nombre";
