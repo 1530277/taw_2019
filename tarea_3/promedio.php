@@ -44,10 +44,6 @@
         public function show_datos(){
             echo "<br>DATOS:";
             echo "<br>Nombre: $this->nombre<br>";
-            /* 
-                Existen 3 caminos, cuando cada una de las unidades es la mayor de las 3, así que cada
-                if de los siguientes representa cada camino
-            */
             //Cuanndo la unidad 1 fue la mayor o igual de todas
             if($this->calificaciones[0]>=$this->calificaciones[1]&&$this->calificaciones[0]>=$this->calificaciones[2]){
                 echo "unidad 1: ". $this->calificaciones[0]."<br>";
