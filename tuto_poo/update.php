@@ -18,7 +18,7 @@
        <div class = "table-wrapper">
             <div class= "table-title">
                 <div class ="row">
-                      <div class="col-sm-8"><h2>Agregar <b>Cliente</b></h2></div>
+                      <div class="col-sm-8"><h2>Modificar <b>Cliente</b></h2></div>
                       <div class="col-sm-4">
                            <a href="index.php" class="btn btn-info add-new"><i
                            class="fa fa-arrow-left"></i>Regresar</a> 
@@ -28,14 +28,21 @@
             <?php
             include ("database.php");
             $clientes =  new Database();
-            if (isset($_POST) && !empty($_POST)) {
+            if(isset($_GET['id'])){#Si se accede a la página junto con la variable id se crea un arreglo asocitivo y una variable php con el id, de otra forma se redirecciona al index
+                $id=$_GET['id'];
+                $cliente = $clientes->single_record($_GET['id']);
+            }else{
+                header('Location: index.php');
+            }
+
+            if (isset($_POST) && !empty($_POST)) {#Entra cuando detecta la activación del método POST
               $nombres = $clientes->sanitize($_POST['nombres']);
               $apellidos = $clientes->sanitize($_POST['apellidos']);
               $telefono = $clientes->sanitize($_POST['telefono']);
               $direccion= $clientes->sanitize($_POST['direccion']);
               $correo_electronico = $clientes->sanitize($_POST['correo_electronico']);
               
-              $res = $clientes->create($nombres,$apellidos,$telefono,$direccion,$correo_electronico);
+              $res = $clientes->update($nombres,$apellidos,$telefono,$direccion,$correo_electronico,$id);
               if ($res) {
                 $message = "Datos insertados con éxito";
                 $class = "alert alert-success";
@@ -59,23 +66,25 @@
          <form method="post">
          <div class="col-md-6">
             <label>Nombres:</label>
-            <input type="text" name="nombres" id="nombres" class='form-control' maxlenght="100" required >
+            <input type="text" name="nombres" id="nombres" class='form-control' maxlenght="100" required value="<?php echo $cliente->nombres; ?>">
          </div>
          <div class="col-md-6">
             <label>Apellidos:</label>
-            <input type="text" name="apellidos" id="apellidos" class='form-control' maxlenght="100" required>  
+            <input type="text" name="apellidos" id="apellidos" class='form-control' maxlenght="100" required value="<?php echo $cliente->apellidos; ?>">  
          </div>
          <div class="col-md-12">
             <label>Dirección:</label> 
-            <textarea name="direccion" id="direccion" class='form-control' maxlenght="255" required></textarea>
+            <textarea name="direccion" id="direccion" class='form-control' maxlenght="255" required>
+            <?php echo $cliente->direccion; ?>
+            </textarea>
          </div>
          <div class="col-md-6">
             <label>Teléfono:</label>
-            <input type="text" name="telefono" id="telefono" class='form-control' maxlenght="15" required>
+            <input type="text" name="telefono" id="telefono" class='form-control' maxlenght="15" required value="<?php echo $cliente->telefono; ?>">
          </div>
          <div class="col-md-6">
             <label>Correo electrónico:</label>
-            <input type="email" name="correo_electronico" id="correo_electronico" class='form-control' maxlenght ="64" required>
+            <input type="email" name="correo_electronico" id="correo_electronico" class='form-control' maxlenght ="64" required value="<?php echo $cliente->correo_electronico; ?>">
          
          </div>
          
