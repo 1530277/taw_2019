@@ -42,8 +42,8 @@
               $direccion= $clientes->sanitize($_POST['direccion']);
               $correo_electronico = $clientes->sanitize($_POST['correo_electronico']);
               
-              $res = $clientes->update($nombres,$apellidos,$telefono,$direccion,$correo_electronico,$id);
-              if ($res) {
+              $res = $clientes->update($nombres,$apellidos,$telefono,$direccion,$correo_electronico,$id);#Actualiza el registro en la bd
+              if ($res) {#Valida si la consulta fue exitosa o no
                 $message = "Datos insertados con éxito";
                 $class = "alert alert-success";
               }else{
@@ -55,7 +55,7 @@
              ?>
            
            <div class="<?php echo $class;?>">
-             <?php echo $message;?>
+             <?php echo $message;#aqui se muestra un mensaje para notificar sobre el estado de la consulta?>
            </div>
               <?php
           }
