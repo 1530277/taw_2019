@@ -19,10 +19,6 @@
 		return false;
 	});
 
-	$(window).resize(function(){
-		return false;
-	});
-
 	Chart = {
 		bar_3d : function () {
 			var chart = new Highcharts.Chart({
@@ -49,6 +45,7 @@
 					data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 				}]
 			});
+			return false;
 		},
 		pie_3d: function() {
 			$('#3dpie-highcharts').highcharts({
@@ -95,6 +92,7 @@
 					]
 				}]
 			});
+			return false;
 		},
 		scatter_3d : function() {
 			// Give the points a 3D feel by adding a radial gradient
@@ -200,6 +198,7 @@
 					}
 				});
 			});
+			return false;
 		},
 		stacking_3d: function () {
 			$('#3dstacking-highcharts').highcharts({
@@ -260,6 +259,7 @@
 					stack: 'female'
 				}]
 			});
+			return false;
 		},
 		random_data: function() {
 			Highcharts.setOptions({
@@ -334,6 +334,7 @@
 					}())
 				}]
 			});
+			return false;
 		},
 		click_data: function(){
 			$('#click-highcharts').highcharts({
@@ -402,6 +403,7 @@
 					data: [[20, 20], [80, 80]]
 				}]
 			});
+			return false;
 		}
 	}
 

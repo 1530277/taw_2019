@@ -16,7 +16,7 @@
                 die("Conexión a la base de datos falló ".mysqli_connect_error().mysqli_connect_errorno());
             }
         }
-        public function valida_usuario($username,$password){
+        public function valida_usuario($username,$password){#Retorna consulta de una fila que coincida con los datos, de no existir retorna un arreglo vacío
             $sql="SELECT*FROM usuarios WHERE username='$username' AND `password` ='$password'";
             $res=mysqli_query($this->con,$sql);
             $return = mysqli_fetch_object($res);

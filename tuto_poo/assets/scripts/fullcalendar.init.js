@@ -89,7 +89,7 @@ $(document).ready(function() {
 				{
 					title: 'Lunch',
 					start: TODAY + 'T12:00:00',
-					className: 'bg-primary'
+					className: 'bg-info'
 				},
 				{
 					title: 'Meeting',
@@ -99,7 +99,7 @@ $(document).ready(function() {
 				{
 					title: 'Happy Hour',
 					start: TODAY + 'T17:30:00',
-					className: 'bg-primary'
+					className: 'bg-info'
 				},
 				{
 					title: 'Dinner',

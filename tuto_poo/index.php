@@ -1,12 +1,13 @@
 <?php
 	include_once('database.php');
 
-	$clientes =  new Database();
+	$clientes =  new Database();#Inicializa objeto con las funciones de la bd
 	if(isset($_POST['login'])){
+		#Trae los camppos con esos nombres dentro del formulario y los inicializa en variables php
 		$username=$_REQUEST['username'];
 		$password=$_REQUEST['password'];
-		$usuario=$clientes->valida_usuario($username,$password);
-		if(!empty($usuario)){
+		$usuario=$clientes->valida_usuario($username,$password);#Función que retorna una consulta de una fila que coincida con los datos recibidos como parámetro
+		if(!empty($usuario)){#Valida que la variable contenga algo, de ser así asigna una sesión con el nombre del usuario para validar que si existe dentro de la bd
 			session_start();
 			$_SESSION['usuario']=$username;
 			header("Location:dtable.php");

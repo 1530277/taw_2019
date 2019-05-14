@@ -1,7 +1,7 @@
 /**
  * Theme: Ninja Admin Template
  * Author: NinjaTeam
- * Module/App: Chartist-Chart
+ * Module/App: Knob
  */
 
 (function($) {

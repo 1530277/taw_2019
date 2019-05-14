@@ -16,10 +16,6 @@
 		return false;
 	});
 
-	$(window).on("resize",function(){
-		return false;
-	});
-
 	Chart = {
 		traffic: function(){
 			$("#traffic-sparkline-chart-1").sparkline("html", {
@@ -57,6 +53,14 @@
 				resize: true,
 				lineColor:'#ff1744'
 			});
+			$('#traffic-sparkline-chart-3-custom').sparkline([5,5, 6,6, 7,7,6,6, 7,7, 8,8,7,7, 8,8, 9,9,8,8, 9,9, 10,10,], {
+				type: 'discrete',
+				width: '120',
+				height: '65',
+				resize: true,
+				lineColor:'#ff460b'
+			});
+			return false;
 		},
 		bar : function () {
 			$('#bar-sparkline-chart').sparkline([5, 6, 2, 8, 9, 4, 7, 10, 11, 12, 10, 9, 4, 7], {
@@ -76,6 +80,7 @@
 				highlightLineColor: 'rgba(0,0,0,.1)',
 				highlightSpotColor: 'rgba(0,0,0,.2)'
 			});
+			return false;
 		},
 		pie : function () {
 			$('#pie-sparkline-chart').sparkline([50, 70, 60], {
@@ -85,6 +90,7 @@
 				resize: true,
 				sliceColors: ['#fcb03b','#ea65a2','#566FC9']
 			});
+			return false;
 		}
 	}
 })(jQuery);

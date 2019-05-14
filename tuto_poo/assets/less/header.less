@@ -1,4 +1,5 @@
 /*
+Themes: Ninja Admin
 Version 2.0
 [Table of contents]
 -------------------------------------------------------------------------
@@ -577,9 +578,9 @@ Version 2.0
 			}
 		}
 		.main-menu{
+			position: absolute;
 			width: 75px;
 			padding-top: 75px;
-			position: absolute;
 		}
 		.fixed-navbar{
 			left: 75px;
@@ -675,10 +676,19 @@ Version 2.0
 		display: inline-block;
 		position: relative;
 		margin-left: 15px;
+		cursor: pointer;
 		font-size: 19px;
 		line-height: 75px;
 		color: @dark_blue_2;
 		@media (min-width: 1025px) { &:hover{color: @white;  } }
+		.ico-img{
+			max-height: 40px;
+			width: auto;
+			margin-top: -3px;
+			border-radius: 100%;
+			-webkit-border-radius: 100%;
+			-moz-border-radius: 100%;
+		}
 		.ico-item{
 			margin-left: 0;
 			&.mdi{
@@ -698,6 +708,190 @@ Version 2.0
 				line-height: 75px;
 				position: relative;
 				top: 3px;
+			}
+		}
+		&.pulse{
+			&:before{
+				content: '';
+				width: 2px;
+				height: 2px;
+				border: 3px solid #ffce54 ;
+				-webkit-border-radius: 30px;
+				-moz-border-radius: 30px;
+				border-radius: 30px;
+				background-color: #ffce54 ;
+				z-index: 10;
+				position: absolute;
+				right: 2px;
+				top: 28px;
+			}
+			&:after{
+				content: '';
+				border: 4px solid #ffce54 ;
+				background: transparent;
+				-webkit-border-radius: 60px;
+				-moz-border-radius: 60px;
+				border-radius: 60px;
+				height: 30px;
+				width: 30px;
+				-webkit-animation: pulse 3s ease-out;
+				-moz-animation: pulse 3s ease-out;
+				animation: pulse 3s ease-out;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+				position: absolute;
+				top: 16px;
+				left: -1px;
+				z-index: 1;
+				opacity: 0;
+			}
+		}
+		&.toggle-hover{
+			position: relative;
+			.toggle-content{
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				top: 100%;
+				right: -10px;
+				background: @white;
+				border: 1px solid rgba(152, 166, 173, 0.15);
+				transition: all 0.4s ease;
+				-moz-transition: all 0.4s ease;
+				-o-transition: all 0.4s ease;
+				-ms-transition: all 0.4s ease;
+				-webkit-transition: all 0.4s ease;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+				transform: translate(0, 20px);
+				-webkit-transform: translate(0, 20px);
+				-moz-transform: translate(0, 20px);
+				-o-transform: translate(0, 20px);
+				-ms-transform: translate(0, 20px);
+				box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+				-moz-box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+				-webkit-box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+				ul{
+					margin: 0;
+					padding: 10px 15px 0;
+					list-style: none;
+					font-size: 0;
+					line-height: 0;
+					text-align: left;
+					width: 300px;
+					li{
+						width: calc(100% / 3);
+						display: inline-block;
+						text-align: center;
+						margin-bottom: 10px;
+					}
+					a{
+						display: block;
+						font-size: 14px;
+						line-height: 24px;
+						color: @dark;
+						> i{
+							display: block;
+							font-size: 18px;
+							line-height: 28px;
+						}
+					}
+				}
+				.read-more{
+					display: block;
+					background: #f5f5f5;
+					color: @dark;
+					font-size: 14px;
+					line-height: 34px;
+					text-align: center;
+					&:hover{
+						color: @blue;
+					}
+				}
+			}
+			&.active{
+				.toggle-content{
+					opacity: 1;
+					visibility: visible;
+					transform: translate(0);
+					-webkit-transform: translate(0);
+					-moz-transform: translate(0);
+				}
+			}
+		}
+		&:hover{
+			.sub-ico-item{
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+				-moz-opacity: 1;
+				-khtml-opacity: 1;
+				opacity: 1;
+				visibility: visible;
+				transform: translate(0, 0);
+				-webkit-transform: translate(0, 0);
+				-moz-transform: translate(0, 0);
+				-o-transform: translate(0, 0);
+				-ms-transform: translate(0, 0);
+			}
+		}
+	}
+	.sub-ico-item{		
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		-moz-opacity: 0;
+		-khtml-opacity: 0;
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		right: 0;
+		top: 48px;
+		background-color: @white;
+		padding: 5px 0;
+		font-size: 0;
+		line-height: 0;
+		list-style: none;
+		border: 1px solid rgba(152,166,173,0.15);
+		transition: all .4s ease;
+		-moz-transition: all .4s ease;
+		-o-transition: all .4s ease;
+		-ms-transition: all .4s ease;
+		-webkit-transition: all .4s ease;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		transform: translate(0, 20px);
+		-webkit-transform: translate(0, 20px);
+		-moz-transform: translate(0, 20px);
+		-o-transform: translate(0, 20px);
+		-ms-transform: translate(0, 20px);
+		box-shadow: 0 0 8px 0 rgba(0,0,0,0.06),0 1px 0 0 rgba(0,0,0,0.02);
+		-moz-box-shadow: 0 0 8px 0 rgba(0,0,0,0.06),0 1px 0 0 rgba(0,0,0,0.02);
+		-webkit-box-shadow: 0 0 8px 0 rgba(0,0,0,0.06),0 1px 0 0 rgba(0,0,0,0.02);
+		&:before{
+			content: '';
+			position: absolute;
+			height: 10px;
+			width: 100%;
+			top: -10px;
+			left: 0
+		}
+		a{
+			display: block;
+			width: 200px;
+			padding: 6px 20px 6px 20px;
+			color: @dark;
+			font-size: 14px;
+			line-height: 24px;
+			&:hover{
+				color: @blue;
+			}
+		}
+	}
+	@media(max-width: 399px){
+		.ico-item{
+			display: none;
+			&:first-child{
+				display: inline-block;
 			}
 		}
 	}

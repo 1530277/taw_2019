@@ -10,20 +10,20 @@
 	var FlotChart = {};
 
 	$(document).ready(function(){
-		FlotChart.module.realtime.init();
-		FlotChart.module.categories.init();
-		FlotChart.module.pile.init();
-		FlotChart.module.donut.init();
-		FlotChart.module.lines.init();
+		if ($("#real-time-flot-chart").length) FlotChart.module.realtime.init();
+		if ($("#categories-flot-chart").length) FlotChart.module.categories.init();
+		if ($("#pile-flot-chart").length) FlotChart.module.pile.init();
+		if ($("#donut-flot-chart").length) FlotChart.module.donut.init();
+		if ($("#lines-flot-chart").length) FlotChart.module.lines.init();
 		return false;
 	});
 
 	$(window).resize(function(){
-		FlotChart.module.realtime.init();
-		FlotChart.module.categories.init();
-		FlotChart.module.pile.init();
-		FlotChart.module.donut.init();
-		FlotChart.module.lines.init();
+		if ($("#real-time-flot-chart").length) FlotChart.module.realtime.init();
+		if ($("#categories-flot-chart").length) FlotChart.module.categories.init();
+		if ($("#pile-flot-chart").length) FlotChart.module.pile.init();
+		if ($("#donut-flot-chart").length) FlotChart.module.donut.init();
+		if ($("#lines-flot-chart").length) FlotChart.module.lines.init();
 		return false;
 	});
 

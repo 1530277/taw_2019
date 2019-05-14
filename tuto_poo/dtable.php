@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	if(!isset($_SESSION['usuario']))
+	session_start();#Llama las sesiones en este archivo
+	if(!isset($_SESSION['usuario']))#De no existir una sesión 'usuario' redirecciona al index para loggearse
 		header("Location:index.php");
 
 ?>

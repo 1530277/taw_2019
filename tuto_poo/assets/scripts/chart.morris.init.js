@@ -11,24 +11,26 @@
 		graph;
 
 	$(document).ready(function(){
-		MorrisChart.area.init();
-		MorrisChart.bar.init();
-		MorrisChart.donut.init();
-		MorrisChart.lines.init();
-		MorrisChart.realtime.init();
-		MorrisChart.stack.init();
-		setInterval(function updateRandom() {
-			MorrisChart.realtime.update();
-		}, 500); 
+		if ($("#area-morris-chart").length) MorrisChart.area.init();
+		if ($("#bar-morris-chart").length) MorrisChart.bar.init();
+		if ($("#donut-morris-chart").length) MorrisChart.donut.init();
+		if ($("#lines-morris-chart").length) MorrisChart.lines.init();
+		if ($("#realtime-morris-chart").length) MorrisChart.realtime.init();
+		if ($("#stack-morris-chart").length) MorrisChart.stack.init();
+		if ($("#realtime-morris-chart").length) {
+			setInterval(function updateRandom() {
+				MorrisChart.realtime.update();
+			}, 500); 
+		}
 		return false;
 	});
 
 	$(window).on("resize",function(){
-		MorrisChart.area.update();
-		MorrisChart.bar.update();
-		MorrisChart.donut.update();
-		MorrisChart.lines.update();
-		MorrisChart.stack.update();
+		if ($("#area-morris-chart").length) MorrisChart.area.update();
+		if ($("#bar-morris-chart").length) MorrisChart.bar.update();
+		if ($("#donut-morris-chart").length) MorrisChart.donut.update();
+		if ($("#lines-morris-chart").length) MorrisChart.lines.update();
+		if ($("#stack-morris-chart").length) MorrisChart.stack.update();
 		return false;
 	});
 

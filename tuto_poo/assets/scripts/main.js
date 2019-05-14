@@ -60,7 +60,7 @@
 									// scroll as soon as clicked
 									timeout:0,
 									// scroll duration
-									scrollInertia:0,
+									scrollInertia:200,
 								});
 							}
 						});

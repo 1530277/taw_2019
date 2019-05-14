@@ -443,7 +443,7 @@ h4 strong{ font-weight: 600; font-size: 16px }
 .btn-primary{ background: @blue; 
 	&:hover,&:active,&:focus{ background: @dark_blue!important; }
 	&.btn-bordered{ border-color: @blue; color: @blue; 
-		&:hover{ 
+		&:hover,&:active,&:focus{ 
 			border-color: @dark_blue;
 			color: @white;
 		}
@@ -452,7 +452,7 @@ h4 strong{ font-weight: 600; font-size: 16px }
 .btn-success{ background: @success; 
 	&:hover,&:active,&:focus{ background: @success_hover!important; }
 	&.btn-bordered{ border-color: @success; color: @success; 
-		&:hover{ 
+		&:hover,&:active,&:focus{ 
 			border-color: @success_hover; 
 			color: @white;
 		}
@@ -461,7 +461,7 @@ h4 strong{ font-weight: 600; font-size: 16px }
 .btn-info{ background: @info; 
 	&:hover,&:active,&:focus{ background: @info_hover!important; }
 	&.btn-bordered{ border-color: @info; color: @info; 
-		&:hover{ 
+		&:hover,&:active,&:focus{ 
 			border-color: @info_hover; 
 			color: @white;
 		}
@@ -470,7 +470,7 @@ h4 strong{ font-weight: 600; font-size: 16px }
 .btn-warning{ background: @warning; 
 	&:hover,&:active,&:focus{ background: @warning_hover!important; }
 	&.btn-bordered{ border-color: @warning; color: @warning; 
-		&:hover{ 
+		&:hover,&:active,&:focus{ 
 			border-color: @warning_hover; 
 			color: @white;
 		}
@@ -479,7 +479,7 @@ h4 strong{ font-weight: 600; font-size: 16px }
 .btn-danger{ background: @danger; 
 	&:hover,&:active,&:focus{ background: @danger_hover!important; }
 	&.btn-bordered{ border-color: @danger; color: @danger; 
-		&:hover{ 
+		&:hover,&:active,&:focus{ 
 			border-color: @danger_hover; 
 			color: @white;
 		}
@@ -490,11 +490,11 @@ h4 strong{ font-weight: 600; font-size: 16px }
 	color: @white;
 	&:hover,&:active,&:focus{
 		color: @white;
-		background: @violet!important;
+		background: @violet_hover!important;
 	}
 	&.btn-bordered{ border-color: @violet; color: @violet; 
-		&:hover{ 
-			border-color: @violet; 
+		&:hover,&:active,&:focus{ 
+			border-color: @violet_hover; 
 			color: @white;
 		}
 	}
@@ -502,12 +502,12 @@ h4 strong{ font-weight: 600; font-size: 16px }
 .btn-orange{ 
 	background: @orange; 
 	color: @white;
-	&:hover,&:active{
+	&:hover,&:active,&:focus{
 		color: @white;
 		background: @orange_hover!important;
 	}
 	&.btn-bordered{ border-color: @orange; color: @orange; 
-		&:hover{ 
+		&:hover,&:active,&:focus{ 
 			border-color: @orange_hover; 
 			color: @white;
 		}
@@ -614,5 +614,78 @@ h4 strong{ font-weight: 600; font-size: 16px }
 }
 .text-dark {
 	color: #212121 !important;
+}
+.text-orange{
+	color: @orange !important;
+}
+.table>tbody>tr.success>td, 
+.table>tbody>tr.success>th, 
+.table>tbody>tr>td.success, 
+.table>tbody>tr>th.success, 
+.table>tfoot>tr.success>td, 
+.table>tfoot>tr.success>th, 
+.table>tfoot>tr>td.success, 
+.table>tfoot>tr>th.success, 
+.table>thead>tr.success>td, 
+.table>thead>tr.success>th, 
+.table>thead>tr>td.success, 
+.table>thead>tr>th.success{
+	background: @success;
+}
+.table>tbody>tr.info>td, 
+.table>tbody>tr.info>th, 
+.table>tbody>tr>td.info, 
+.table>tbody>tr>th.info, 
+.table>tfoot>tr.info>td, 
+.table>tfoot>tr.info>th, 
+.table>tfoot>tr>td.info, 
+.table>tfoot>tr>th.info, 
+.table>thead>tr.info>td, 
+.table>thead>tr.info>th, 
+.table>thead>tr>td.info, 
+.table>thead>tr>th.info{
+	background: @info;
+}
+.table>tbody>tr.primary>td, 
+.table>tbody>tr.primary>th, 
+.table>tbody>tr>td.primary, 
+.table>tbody>tr>th.primary, 
+.table>tfoot>tr.primary>td, 
+.table>tfoot>tr.primary>th, 
+.table>tfoot>tr>td.primary, 
+.table>tfoot>tr>th.primary, 
+.table>thead>tr.primary>td, 
+.table>thead>tr.primary>th, 
+.table>thead>tr>td.primary, 
+.table>thead>tr>th.primary{
+	background: @blue;
+}
+.table>tbody>tr.danger>td, 
+.table>tbody>tr.danger>th, 
+.table>tbody>tr>td.danger, 
+.table>tbody>tr>th.danger, 
+.table>tfoot>tr.danger>td, 
+.table>tfoot>tr.danger>th, 
+.table>tfoot>tr>td.danger, 
+.table>tfoot>tr>th.danger, 
+.table>thead>tr.danger>td, 
+.table>thead>tr.danger>th, 
+.table>thead>tr>td.danger, 
+.table>thead>tr>th.danger{
+	background: @danger;
+}
+.table>tbody>tr.warning>td, 
+.table>tbody>tr.warning>th, 
+.table>tbody>tr>td.warning, 
+.table>tbody>tr>th.warning, 
+.table>tfoot>tr.warning>td, 
+.table>tfoot>tr.warning>th, 
+.table>tfoot>tr>td.warning, 
+.table>tfoot>tr>th.warning, 
+.table>thead>tr.warning>td, 
+.table>thead>tr.warning>th, 
+.table>thead>tr>td.warning, 
+.table>thead>tr>th.warning{
+	background: @warning;
 }
 /*---------------------------------------------------------------------*/
