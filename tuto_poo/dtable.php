@@ -136,9 +136,7 @@
 	<script src="assets/scripts/main.min.js"></script>
 </body>
 <script>
-
-
-				function confirmar(id){
+		function confirmar(id){
             var reply=confirm("¿Seguro que desea eliminar este registro?");
             if (reply==true) 
             {
