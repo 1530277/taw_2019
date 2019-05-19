@@ -14,6 +14,8 @@
     #Valida que exista esta variable para poder guardar datos de forma que corresponde
     if(empty($_REQUEST['tipo_usuario']))
       header('index.php');
+
+    //mhrodriguez/php-mvc-pdo-sample
     else
       $tipo_usuario=$_REQUEST['tipo_usuario'];
     include_once('header.php');
