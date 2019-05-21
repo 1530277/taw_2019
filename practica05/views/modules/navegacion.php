@@ -1,4 +1,6 @@
-
+<?php
+  session_start();
+?>
 <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -30,12 +32,6 @@
                 </p>
               </li>
               
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->

@@ -56,17 +56,23 @@ class MvcController{
 			$datos = new Datos();
 			$respuesta = $datos->m_login($datos_usuario);
 			if(!empty($respuesta)){
-				//session_start();
 				$_SESSION['id_usuario']=$respuesta['id'];
-				header('Location:index.php?action=dashboard');
-			}else
-				header('Location:index.php?action=login');
+				#header('location:index.php?action=dashboard');
+			    $URL="index.php?action=dashboard";
+			    echo "<script >document.location.href='{$URL}';</script>";
+			    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+			}else{
+				#header('location:index.php?action=registrar');
+			    $URL="index.php?action=login";
+			    echo "<script >document.location.href='{$URL}';</script>";
+			    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+			}
 		}
 	}
 
 	#INGRESO DE USUARIOS
 	#------------------------------------
-	public function ingresoUsuarioController(){
+/*	public function ingresoUsuarioController(){
 
 		if(isset($_POST["usuarioIngreso"])){
 
@@ -184,7 +190,7 @@ class MvcController{
 
 		}
 
-	}
+	}*/
 
 }
 

@@ -1,9 +1,15 @@
+
 <div class="content">
   <?php
-  session_start();
-  if(isset($_SESSION['id_alumno'])){
-    header('Location:index.php?action=dashboard');
-  }?>
+    if(isset($_SESSION['id_alumno'])){
+      $URL="index.php?action=dashboard";
+      echo "<script>document.location.href='{$URL}';</script>";
+      echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+    }
+    $controlador = new MvcController();
+    $controlador->c_login();
+  
+?>
   <div class="col-md-9">
           <!-- Horizontal Form -->
           <div class="box box-info">
@@ -38,7 +44,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" name="registrar" class="btn btn-info pull-right form-control">Sign in</button>
+                <button type="submit" name="registrar" class="btn btn-info pull-right form-control">Iniciar sesión</button>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -46,8 +52,3 @@
           <!-- /.box -->
 </div>
 </div>
-
- <?php
-  $controlador = new MvcController();
-  $controlador->c_login();
-?>

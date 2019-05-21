@@ -13,10 +13,10 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="content-wrapper">
 		<section class="content-header">
-				<?php 
-					$mvc = new MvcController();
-					$mvc -> enlacesPaginasController();
-				 ?>
+			<?php 
+				$mvc = new MvcController();
+				$mvc -> enlacesPaginasController();
+			?>
 		</section>
 	</div>
 </body>

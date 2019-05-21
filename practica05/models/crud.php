@@ -15,7 +15,7 @@ class Datos extends Conexion{
 		$query = Conexion::conectar()->prepare("INSERT INTO usuarios (usuario, passw, nombre) VALUES (:usuario,:password,:nombre)");	
 
 		#bindParam() Vincula una variable de PHP a un parámetro de sustitución con nombre o de signo de interrogación correspondiente de la sentencia SQL que fue usada para preparar la sentencia.
-
+		
 		$query->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
 		$query->bindParam(":password", $datosModel["password"], PDO::PARAM_STR);
 		$query->bindParam(":nombre", $datosModel["nombre"], PDO::PARAM_STR);
@@ -32,7 +32,7 @@ class Datos extends Conexion{
 
 		$res = $query->execute();
 
-		return $res;
+		return $query->fetch();
 	}
 
 	#VISTA USUARIOS
