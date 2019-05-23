@@ -10,7 +10,7 @@
 </head>
 
 <?php include_once "modules/navegacion.php";?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 	<div class="content-wrapper">
 		<section class="content-header">
 			<?php 
