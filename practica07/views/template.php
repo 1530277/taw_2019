@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Sistema gestor de hotel</title>
+	<title>Sistema de tutorias</title>
 	<style type="text/css">
 		.malert{
 			background: #dff0d8!important;
@@ -12,52 +12,6 @@
 		}
 	</style>
 
-	<?php
-		/*
-
-			personas{
-				-id
-				-nombres
-				-paterno
-				-materno
-				-telefono
-				-correo
-			}
-			alumnos{
-				-id
-				-matricula
-				-id_persona
-			}
-			maestros{
-				-id
-				-numero_empleado
-				-id_persona
-			}
-			carreras{
-				-id
-				-nombre
-			}
-			materias_alumnos{
-				-id_materia
-				-id_alumno
-			}
-			materia{
-				-id
-				-clave
-				-nombre
-				-id_profesor
-				-carrera
-			}
-			grupos{
-				-id
-				-nombre
-				-id_grupo
-				-id_carrera
-				-cuatrimestre
-			}
-		
-		*/
-	?>
 	<?php include_once('modules/head-links.php'); #session_start();?>
 
 </head>
@@ -67,7 +21,7 @@
 <body class="skin-black fixed sidebar-mini sidebar-mini-expand-feature">
 	<div class="content-wrapper">
 		<section class="content-header"><?php #}?>
-			<?php 
+			<?php
 				$mvc = new MvcController();
 
 				include_once('modules/foot-links.php');#Se agregan aqui las etiquetas/links Javascript ya que es necesario adjuntarlas al proyecto antes que se carguen las vistas
