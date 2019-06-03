@@ -149,6 +149,23 @@
 				return false;
 		}
 
+		public function update_materia($id_materia){
+			if(isset($_POST['guardar'])){
+				$datos_consulta = array('id' => $id_materia, 'clave' => $_POST['clave'],
+					'nombre' => $_POST['nombre'], 'id_carrera' => $_POST['id_carrera'],
+					'id_maestro' => $_POST['id_maestro']);
+				$ret = Datos::update_materia($datos_consulta);
+				
+				if($ret){
+				    $URL="index.php?action=ver_materias";
+				    echo "<script >document.location.href='{$URL}';</script>";
+				    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+				}else
+					return false;
+			}else
+				return false;
+		}
+
 		public function get_materias(){
 			$ret = Datos::get_materias();
 			return $ret;
@@ -177,6 +194,25 @@
 		public function get_all($tabla){
 			$ret = Datos::get_all($tabla);
 			return $ret;
+		}
+
+		public function delete_from($id,$tabla){
+			$ret = Datos::delete_registro($id,$tabla);
+
+		    $URL="index.php?action=ver_$tabla";
+		    echo "<script >document.location.href='{$URL}';</script>";
+		    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+		}
+
+		public function delete_persona($id,$tabla){
+			$ret = Datos::delete_persona($id,$tabla);
+			if($tabla=="maestros" && $ret==false){
+				echo "<script> window.alert('Modifique los datos de la tabla materias antes de eliminar este maestro, una materia tiene que tener alguien que la imparta.'); </script>";
+				
+			    $URL="index.php?action=ver_$tabla";
+			    echo "<script >document.location.href='{$URL}';</script>";
+			    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+			}
 		}
 
 	}

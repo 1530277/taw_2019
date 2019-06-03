@@ -113,6 +113,17 @@ class Datos extends Conexion{
 			return false;
 	}
 
+	public function update_materia($datos_consulta){
+		$query = Conexion::conectar()->prepare("UPDATE materias SET
+					clave = '$datos_consulta[clave]',
+					nombre = '$datos_consulta[nombre]',
+					id_maestro = '$datos_consulta[id_maestro]',
+					id_carrera = '$datos_consulta[id_carrera]'
+			WHERE id = '$datos_consulta[id]'");
+		$ret = $query->execute();
+		return $ret;
+	}
+
 	public function get_all($tabla){
 		$query = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 		$query->execute();
@@ -169,7 +180,19 @@ class Datos extends Conexion{
 
 	public function delete_registro($id,$tabla){
 		$query = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id=$id");
-		$query->execute();
+		$ret = $query->execute();
+		return $ret;
+	}
+	public function delete_persona($id,$tabla){
+		$query = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_persona=$id");
+		$ret = $query->execute();
+		if($ret){
+			$query = Conexion::conectar()->prepare("DELETE FROM personas WHERE id=$id");
+			$ret = $query->execute();
+			return $ret;
+		}else
+			return false;
+
 	}
 
 

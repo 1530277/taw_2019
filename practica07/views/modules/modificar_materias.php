@@ -8,7 +8,8 @@ if(isset($_GET['id']))
   }
   $materia = MvcController::get_registro_by_id($id_materia,'materias');
   $maestros = MvcController::get_maestros();
-  MvcController::update_maestro($id_persona);
+  $carreras = MvcController::get_all('carreras');
+  MvcController::update_materia($id_materia);
 ?>
 
 <div class="col-md-9" >
@@ -18,36 +19,16 @@ if(isset($_GET['id']))
               <h3 class="box-title">Modificando registro</h3>
             </div>
             <!-- /.box-header -->
-
-            <?php if($res==1){ ?>
-              <div class="box box-success" style="background: #dff0d8!important;color:green!important;margin:0 auto;width: 70%;">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Notificación</h3>
-
-                  <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                  <!-- /.box-tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  Los datos fueron guardados exitosamente.
-                </div>
-                <!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            <?php } ?>
-
             <!-- form start -->
             <form role="form" method="post" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
                   <label for="clave">Clave</label>
-                  <input type="text" class="form-control" name="clave" id="clave" placeholder="" required>
+                  <input type="text" value="<?php echo $materia['clave']; ?>" class="form-control" name="clave" id="clave" placeholder="" required>
                 </div>
                 <div class="form-group">
                   <label for="nombre">Nombre</label>
-                  <input type="text" class="form-control" name="nombre" id="nombre" placeholder="" required>
+                  <input type="text" value="<?php echo $materia['nombre']; ?>" class="form-control" name="nombre" id="nombre" placeholder="" required>
                 </div>
                 <div class="form-group">
                   <label for="materno">Elegir maestro</label>
@@ -68,7 +49,11 @@ if(isset($_GET['id']))
                   <select class="form-control" name="id_carrera" id="carreras" required="">
                   	<?php
                   		foreach ($carreras as $carrera) {
-                  			echo "<option value='$carrera[id]'> $carrera[siglas] - $carrera[nombre] </option>";
+                        if($carrera['id']!=$materia['id_carrera']){
+                  			 echo "<option value='$carrera[id]'> $carrera[siglas] - $carrera[nombre] </option>";
+                        }else{
+                           echo "<option value='$carrera[id]' selected> $carrera[siglas] - $carrera[nombre] </option>";
+                        }
                   		}
                   	?>
                   </select>
