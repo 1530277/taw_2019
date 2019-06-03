@@ -208,11 +208,10 @@
 			$ret = Datos::delete_persona($id,$tabla);
 			if($tabla=="maestros" && $ret==false){
 				echo "<script> window.alert('Modifique los datos de la tabla materias antes de eliminar este maestro, una materia tiene que tener alguien que la imparta.'); </script>";
-				
+			}
 			    $URL="index.php?action=ver_$tabla";
 			    echo "<script >document.location.href='{$URL}';</script>";
 			    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
-			}
 		}
 
 	}

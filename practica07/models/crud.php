@@ -184,10 +184,10 @@ class Datos extends Conexion{
 		return $ret;
 	}
 	public function delete_persona($id,$tabla){
-		$query = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_persona=$id");
+		$query = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_persona='$id'");
 		$ret = $query->execute();
 		if($ret){
-			$query = Conexion::conectar()->prepare("DELETE FROM personas WHERE id=$id");
+			$query = Conexion::conectar()->prepare("DELETE FROM personas WHERE id='$id'");
 			$ret = $query->execute();
 			return $ret;
 		}else
