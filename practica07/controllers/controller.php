@@ -113,6 +113,23 @@
 				return false;
 		}
 
+		public function update_grupo($id_grupo){
+			if(isset($_POST['guardar'])){
+				$datos_consulta = array('id' => $id_grupo, 
+					'clave' => $_POST['clave'], 'id_carrera' => $_POST['id_carrera'],
+					 'cuatrimestre' => $_POST['cuatrimestre']);
+				$res = Datos::update_grupo($datos_consulta);
+
+				if($res){
+				    $URL="index.php?action=ver_grupos";
+				    echo "<script >document.location.href='{$URL}';</script>";
+				    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+				}else
+					return false;
+			}else
+				return false;
+		}
+
 		public function update_alumno($id_persona){
 			if(isset($_POST['guardar'])){
 				$datos_consulta = array('id_persona' => $id_persona, 'nombres' => $_POST['nombres'],
@@ -193,6 +210,11 @@
 
 		public function get_all($tabla){
 			$ret = Datos::get_all($tabla);
+			return $ret;
+		}
+
+		public function get_grupos(){
+			$ret = Datos::get_grupos();
 			return $ret;
 		}
 

@@ -1,4 +1,7 @@
-
+<?php
+    $res = MvcController::insert_grupo();
+    $carreras = MvcController::get_all('carreras');
+?>
 <div class="col-md-9" >
           <!-- general form elements -->
           <div class="box box-primary">
@@ -29,36 +32,30 @@
             <!-- form start -->
             <form role="form" method="post" enctype="multipart/form-data">
               <div class="box-body">
+                
                 <div class="form-group">
-                  <label for="numero_cliente">Número de cliente</label>
-                  <input type="text" class="form-control" name="numero_cliente" id="numero_cliente" placeholder="" required>
+                  <label for="clave">Clave</label>
+                  <input type="text" class="form-control" name="clave" id="clave" placeholder="" required>
                 </div>
+                
                 <div class="form-group">
-                  <label for="nombres">Nombre(s)</label>
-                  <input type="text" class="form-control" name="nombres" id="nombres" placeholder="" required>
+                  <label for="cuatrimestre">Cuatrimestre</label>
+                  <input type="number" min="1" max="9" class="form-control" name="cuatrimestre" id="cuatrimestre" placeholder="" required>
                 </div>
+
                 <div class="form-group">
-                  <label for="paterno">Apellido paterno</label>
-                  <input type="text" class="form-control" name="paterno" id="paterno" placeholder="" required>
-                </div>
-                <div class="form-group">
-                  <label for="materno">Apellido materno</label>
-                  <input type="text" class="form-control" name="materno" id="materno" placeholder="" required>
-                </div>
-                <div class="form-group">
-                  <label for="tipo_cliente">Tipo de cliente</label>
-                  <select class="form-control" name="tipo_cliente" id="tipo_cliente">
-                      <?php
-                          foreach ($tipos as $tipo) {
-                            echo "<option value='$tipo[id]'> $tipo[nombre] </option>";
-                          }
-                      ?>
+                  <label for="carreras">Elegir carrera</label>
+                  <select class="form-control" name="id_carrera" id="carreras" required="">
+                    <?php
+                      foreach ($carreras as $carrera) {
+                        echo "<option value='$carrera[id]'> $carrera[siglas] - $carrera[nombre] </option>";
+                      }
+                    ?>
                   </select>
-                  <p class="help-block">Elejir una opción.</p>
                 </div>
+
               </div>
               <!-- /.box-body -->
-
               <div class="box-footer">
                 <button type="submit" name="guardar" class="btn btn-primary">Guardar datos</button>
               </div>

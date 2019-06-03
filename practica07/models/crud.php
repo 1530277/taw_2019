@@ -59,9 +59,27 @@ class Datos extends Conexion{
 		return $ret;
 	}
 
+	public function insert_grupo($datos_consulta){
+		$query = Conexion::conectar()->prepare("INSERT INTO grupos(clave,id_carrera,cuatrimestre)
+				VALUES('$datos_consulta[clave]','$datos_consulta[id_carrera]','$datos_consulta[cuatrimestre]')");
+
+		$ret = $query->execute();
+		return $ret;
+	}
+
 	public function insert_materia($datos_consulta){
 		$query = Conexion::conectar()->prepare("INSERT INTO materias(clave,nombre,id_maestro,id_carrera)
 			VALUES('$datos_consulta[clave]','$datos_consulta[nombre]','$datos_consulta[id_maestro]','$datos_consulta[id_carrera]')");
+		$ret = $query->execute();
+		return $ret;
+	}
+
+	public function update_grupo($datos_consulta){
+		$query = Conexion::conectar()->prepare("UPDATE grupos SET
+				clave = '$datos_consulta[clave]',
+				id_carrera = '$datos_consulta[id_carrera]',
+				cuatrimestre = '$datos_consulta[cuatrimestre]'
+			WHERE id = '$datos_consulta[id]'");
 		$ret = $query->execute();
 		return $ret;
 	}
@@ -128,6 +146,13 @@ class Datos extends Conexion{
 		$query = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 		$query->execute();
 
+		return $query->fetchAll();
+	}
+
+	public function get_grupos(){
+		$query = Conexion::conectar()->prepare("SELECT g.id,g.clave,c.nombre as nombre_carrera,
+				g.cuatrimestre FROM grupos g INNER JOIN carreras c ON c.id=g.id_carrera");
+		$query->execute();
 		return $query->fetchAll();
 	}
 

@@ -4,7 +4,6 @@
 		$tabla = $_GET['tabla'];
 
 		if($tabla != "maestros" && $tabla != "alumnos"){
-			#echo "entro aqui";
 			MvcController::delete_from($id,$tabla);
 		}else{
 			MvcController::delete_persona($id,$tabla);
