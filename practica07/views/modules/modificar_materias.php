@@ -20,7 +20,7 @@ if(isset($_GET['id']))
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" enctype="multipart/form-data">
+            <form role="form" method="post">
               <div class="box-body">
                 <div class="form-group">
                   <label for="clave">Clave</label>

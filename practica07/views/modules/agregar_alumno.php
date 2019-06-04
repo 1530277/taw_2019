@@ -30,7 +30,7 @@
             <?php } ?>
 
             <!-- form start -->
-            <form role="form" method="post" enctype="multipart/form-data">
+            <form role="form" method="post" >
               <div class="box-body">
                 <div class="form-group">
                   <label for="nombres">Nombres</label>
