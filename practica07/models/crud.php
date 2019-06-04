@@ -33,6 +33,14 @@ class Datos extends Conexion{
 		return $ret;
 	}
 
+	public function insert_tutoria($datos_consulta){
+		$query = Conexion::conectar()->prepare("INSERT INTO sesion_tutoria(fecha,hora,tipo,tema,id_maestro)
+			VALUES('$datos_consulta[fecha]', '$datos_consulta[hora]', 
+			'$datos_consulta[tipo]', '$datos_consulta[tema]', '$datos_consulta[id_maestro]')");
+		$ret = $query->execute();
+		return $ret;
+	}
+
 	public function insert_maestro($datos_consulta){
 		$query = Conexion::conectar()->prepare("INSERT INTO maestros(numero_empleado,id_persona)
 			VALUES('$datos_consulta[numero_empleado]','$datos_consulta[id_persona]')");
@@ -185,6 +193,18 @@ class Datos extends Conexion{
 			    ON ma.id_persona=p.id 
 			    INNER JOIN carreras c 
 				ON c.id=mt.id_carrera");
+		$query->execute();
+		return $query->fetchAll();
+	}
+
+	public function get_tutorias(){
+		$query = Conexion::conectar()->prepare("SELECT st.id,st.hora,st.fecha,st.tipo,st.tema,
+			p.nombres,p.paterno,p.materno,m.numero_empleado
+			FROM sesion_tutoria st 
+			INNER JOIN maestros m
+			ON m.id=st.id_maestro
+			INNER JOIN personas p
+			ON p.id=m.id_persona");
 		$query->execute();
 		return $query->fetchAll();
 	}

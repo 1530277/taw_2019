@@ -98,6 +98,16 @@
 				return false;
 		}
 
+		public function insert_tutoria(){
+			if(isset($_POST['guardar'])){
+				$datos_consulta = array('fecha' => $_POST['fecha'], 'hora' => $_POST['hora'], 
+					'tipo' => $_POST['tipo'], 'tema' => $_POST['tema'], 'id_maestro' => $_POST['id_maestro']);
+				$ret = Datos::insert_tutoria($datos_consulta);
+				return $ret;
+			}else
+				return false;
+		}
+
 		public function update_carrera($id_carrera){
 			if(isset($_POST['guardar'])){
 				$datos_consulta = array('id' => $id_carrera, 'nombre' => $_POST['nombre'],
@@ -181,6 +191,11 @@
 					return false;
 			}else
 				return false;
+		}
+
+		public function get_tutorias(){
+			$ret = Datos::get_tutorias();
+			return $ret;
 		}
 
 		public function get_materias(){
