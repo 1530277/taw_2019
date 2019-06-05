@@ -30,8 +30,13 @@
 				                <td> <?php echo $tutoria['hora']; ?> </td>
 				                <td> <?php echo $tutoria['tipo']; ?> </td>
 				                <td> <?php echo $tutoria['tema']; ?> </td>
+<<<<<<< HEAD
 				                <td>
                           <a type="button" class="btn btn-warning" href="index.php?action=modificar_tutorias&id=<?php echo $tutoria['id']; ?>" title="Modificar" data-toggle="tooltip"><i class="fa fa-fw fa-edit"></i></a>
+=======
+				                <td> 
+				                	<a type="button" class="btn btn-warning" href="index.php?action=modificar_tutorias&id=<?php echo $tutoria['id']; ?>" title="Modificar" data-toggle="tooltip"><i class="fa fa-fw fa-edit"></i></a>
+>>>>>>> 9a22a42dd416e4a3a61d0cfb64a6ca14b9af70d6
 				                	<a type="button" class="btn btn-danger" onclick="confirmar('<?php echo $tutoria['id']; ?>')" title="Eliminar" data-toggle="tooltip"><i class="fa fa-fw fa-trash"></i></a>
 				                </td>
 			                </tr>
@@ -65,5 +70,16 @@
 
 		$(function () {
 			$('#tutorias').DataTable()
+<<<<<<< HEAD
+=======
+			/*$('#example2').DataTable({
+			  'paging'      : true,
+			  'lengthChange': false,
+			  'searching'   : false,
+			  'ordering'    : true,
+			  'info'        : true,
+			  'autoWidth'   : false
+			})*/
+>>>>>>> 9a22a42dd416e4a3a61d0cfb64a6ca14b9af70d6
 		})
 </script>

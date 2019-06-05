@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php
   echo "algo";
+=======
+ <?php
+>>>>>>> 9a22a42dd416e4a3a61d0cfb64a6ca14b9af70d6
   $res = MvcController::insert_tutoria();
   $carreras = MvcController::get_all('carreras');
   $maestros = MvcController::get_maestros();
