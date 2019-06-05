@@ -17,7 +17,9 @@
 		                	<th>Carrera</th>
 		                	<th>Número de empleado</th>
 		                	<th>Profesor que la imparte</th>
-		                	<th>Acciones</th>
+		                	<th>Agregar alumnos</th>
+		                	<th></th>
+		                	<th></th>
 		                </tr>
 	                </thead>
 	                <tbody>
@@ -27,10 +29,15 @@
 				                <td> <?php echo $materia['nombre_materia']; ?> </td>
 				                <td> <?php echo $materia['nombre_carrera']; ?> </td>
 				                <td> <?php echo $materia['numero_empleado']; ?> </td>
-				        		<td> <?php echo $materia['nombres']." ".$materia['paterno']." ".$materia['materno']; ?> </td>
+				        		    <td> <?php echo $materia['nombres']." ".$materia['paterno']." ".$materia['materno']; ?> </td>
 				                <td> 
-				                	<a type="button" class="btn btn-warning" href="index.php?action=modificar_materias&id=<?php echo $materia['id_materia']; ?>" title="Modificar" data-toggle="tooltip"><i class="fa fa-fw fa-edit"></i></a>
-				                	<a type="button" class="btn btn-danger" onclick="confirmar('<?php echo $materia['id_materia']; ?>')" title="Eliminar" data-toggle="tooltip"><i class="fa fa-fw fa-trash"></i></a>
+				                	<a type="button" class="btn btn-info" href="index.php?action=alumno_materia&id=<?php echo $materia['id_materia']; ?>" title="Gestiónar alumnos" data-toggle="tooltip"><i class="fa fa-fw fa-user-plus"></i></a>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-warning" href="index.php?action=modificar_materias&id=<?php echo $materia['id_materia']; ?>" title="Modificar materia" data-toggle="tooltip"><i class="fa fa-fw fa-edit"></i></a>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-danger" onclick="confirmar('<?php echo $materia['id_materia']; ?>')" title="Eliminar materia" data-toggle="tooltip"><i class="fa fa-fw fa-trash"></i></a>
 				                </td>
 			                </tr>
 			            <?php } ?>
@@ -42,8 +49,10 @@
 		                	<th>Carrera</th>
 		                	<th>Número de empleado</th>
 		                	<th>Profesor que la imparte</th>
-		                	<th>Acciones</th>
-		                </tr>
+		                	<th>Agregar alumnos</th>
+                      <th></th>
+		                  <th></th>
+                    </tr>
 	                </tfoot>
             	</table>
         	</div>

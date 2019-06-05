@@ -15,7 +15,9 @@
 		                	<th>Clave</th>
 		                	<th>Pertenece al cuatrimestre</th>
 		                	<th>Carrera</th>
-		                	<th>Acciones</th>
+		                	<th>Agregar materias</th>
+		                	<th></th>
+		                	<th></th>
 		                </tr>
 	                </thead>
 	                <tbody>
@@ -25,8 +27,13 @@
 				                <td> <?php echo $grupo['cuatrimestre']; ?> </td>
 				                <td> <?php echo $grupo['nombre_carrera']; ?> </td>
 				                <td> 
-				                	<a type="button" class="btn btn-warning" href="index.php?action=modificar_grupos&id=<?php echo $grupo['id']; ?>" title="Modificar" data-toggle="tooltip"><i class="fa fa-fw fa-edit"></i></a>
-				                	<a type="button" class="btn btn-danger" onclick="confirmar('<?php echo $grupo['id']; ?>')" title="Eliminar" data-toggle="tooltip"><i class="fa fa-fw fa-trash"></i></a>
+				                	<a type="button" class="btn btn-info" href="index.php?action=grupo_materia&id=<?php echo $grupo['id']; ?>" title="Agregar materias" data-toggle="tooltip"><i class="fa fa-fw fa-plus-square"></i></a>
+                        </td>
+                        <td> 
+				                	<a type="button" class="btn btn-warning" href="index.php?action=modificar_grupos&id=<?php echo $grupo['id']; ?>" title="Modificar datos" data-toggle="tooltip"><i class="fa fa-fw fa-edit"></i></a>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-danger" onclick="confirmar('<?php echo $grupo['id']; ?>')" title="Eliminar registro" data-toggle="tooltip"><i class="fa fa-fw fa-trash"></i></a>
 				                </td>
 			                </tr>
 			            <?php } ?>
@@ -37,7 +44,9 @@
 		                	<th>Clave</th>
 		                	<th>Pertenece al cuatrimestre</th>
 		                	<th>Carrera</th>
-		                	<th>Acciones</th>
+		                	<th>Agregar materias</th>
+                      <th></th>
+                      <th></th>
 		                </tr>
 	                </tfoot>
             	</table>

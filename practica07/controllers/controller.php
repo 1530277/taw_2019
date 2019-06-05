@@ -78,6 +78,16 @@
 				return false;
 		}
 
+		public function insert_tutoria(){
+			if(isset($_POST['guardar'])){
+				$datos_consulta = array('fecha' => $_POST['fecha'], 'hora' => $_POST['hora'], 
+					'tipo' => $_POST['tipo'], 'tema' => $_POST['tema'], 'id_maestro' => $_POST['id_maestro']);
+				$ret = Datos::insert_tutoria($datos_consulta);
+				return $ret;
+			}else
+				return false;
+		}
+
 		public function insert_materia(){
 			if(isset($_POST['guardar'])){
 				$datos_consulta = array('clave' => $_POST['clave'], 'nombre' => $_POST['nombre']
@@ -97,6 +107,13 @@
 			}else
 				return false;
 		}
+    
+    public function insert_alumno_materia($id_materia){
+      if(isset($_POST['guardar'])){
+        $datos_consulta = array('id_materia' => $id_materia, 'id_alumno' => $_POST['id_materia']);
+      }else
+        return false;
+    }
 
 		public function update_carrera($id_carrera){
 			if(isset($_POST['guardar'])){
@@ -182,6 +199,26 @@
 			}else
 				return false;
 		}
+    public function update_tutoria($id_tutoria){
+      if(isset($_POST['guardar'])){
+        $datos_consulta = array('id' => $id_tutoria, 'fecha' => $_POST['fecha'], 'hora' => $_POST['hora'], 
+					'tipo' => $_POST['tipo'], 'tema' => $_POST['tema'], 'id_maestro' => $_POST['id_maestro']);
+				$ret = Datos::update_tutoria($datos_consulta);
+				if($ret){
+				    $URL="index.php?action=ver_tutorias";
+				    echo "<script >document.location.href='{$URL}';</script>";
+				    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+        }else{
+          return false;
+        }
+      }else
+        return false;
+    }
+    
+		public function get_tutorias(){
+			$ret = Datos::get_tutorias();
+			return $ret;
+		}
 
 		public function get_materias(){
 			$ret = Datos::get_materias();
@@ -235,6 +272,18 @@
 			    echo "<script >document.location.href='{$URL}';</script>";
 			    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
 		}
+    
+    //Alumnos que no se encuentran en la materia que coincide con el id_materia recibido ded parámetro
+    public function get_alumnos_disponibles($id_materia){
+      $ret = Datos::get_alumnos_disponibles($id_materia);
+      return $ret;
+    }
+    
+    //Todos los alumnos registrados en una materia
+    public function get_alumnos_by_materia($id_materia){
+      $ret = Datos::get_alumnos_by_materia($id_materia);
+      return $ret;
+    }
 
 	}
 ?>

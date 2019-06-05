@@ -130,6 +130,18 @@ class Datos extends Conexion{
 		}else
 			return false;
 	}
+  
+  public function update_tutoria($datos_consulta){
+    $query = Conexion::conectar()->prepare("UPDATE sesion_tutoria SET
+          fecha = '$datos_consulta[fecha]',
+          hora = '$datos_consulta[hora]',
+          tipo = '$datos_consulta[tipo]',
+          tema = '$datos_consulta[tema]',
+          id_maestro = '$datos_consulta[id_maestro]'
+        WHERE id = '$datos_consulta[id]'");
+    $ret = $query->execute();
+    return $ret;
+  }
 
 	public function update_materia($datos_consulta){
 		$query = Conexion::conectar()->prepare("UPDATE materias SET
@@ -149,6 +161,18 @@ class Datos extends Conexion{
 		return $query->fetchAll();
 	}
 
+	public function get_tutorias(){
+		$query = Conexion::conectar()->prepare("SELECT st.id,st.hora,st.fecha,st.tipo,st.tema,
+			p.nombres,p.paterno,p.materno,m.numero_empleado
+			FROM sesion_tutoria st 
+			INNER JOIN maestros m
+			ON m.id=st.id_maestro
+			INNER JOIN personas p
+			ON p.id=m.id_persona");
+		$query->execute();
+		return $query->fetchAll();
+	}
+  
 	public function get_grupos(){
 		$query = Conexion::conectar()->prepare("SELECT g.id,g.clave,c.nombre as nombre_carrera,
 				g.cuatrimestre FROM grupos g INNER JOIN carreras c ON c.id=g.id_carrera");
@@ -219,7 +243,31 @@ class Datos extends Conexion{
 			return false;
 
 	}
-
+  //Valida alumnos que aún no entran a una clase
+  public function get_alumnos_disponibles($id_materia){
+    $query = Conexion::conectar()->prepare("SELECT a.id as id_alumno, p.nombres, p.paterno, p.materno, a.matricula, a.id_persona 
+             FROM materias_alumnos ma 
+                  RIGHT JOIN alumnos a 
+                  ON ma.id_alumno=a.id 
+                  INNER JOIN personas p 
+                  ON p.id=a.id_persona 
+            WHERE ma.id_materia <> $id_materia OR ma.id_materia IS NULL");
+    $query->execute();
+    return $query->fetchAll();
+  }
+  
+  public function get_alumnos_by_materia($id_materia){
+    $query = Conexion::conectar()->prepare("SELECT a.id as id_alumno, p.nombres, p.paterno, p.materno, 
+          a.matricula, a.id_persona, ma.id_materia 
+             FROM materias_alumnos ma 
+                  RIGHT JOIN alumnos a 
+                  ON ma.id_alumno=a.id 
+                  INNER JOIN personas p 
+                  ON p.id=a.id_persona
+             WHERE ma.id_materia=$id_materia");
+    $query->execute();
+    return $query->fetchAll();
+  }
 
 }
 
